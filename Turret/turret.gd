@@ -6,6 +6,9 @@ var enemy_path: Path3D
 
 @onready var turret_head: MeshInstance3D = $TurretBase/TurretTop/TurretHead
 
+func _physics_process(delta: float) -> void:
+	var enemy = enemy_path.get_children().back()
+	print(enemy)
 
 func _on_timer_timeout() -> void:
 	var shot = projectile.instantiate()

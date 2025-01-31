@@ -27,6 +27,6 @@ func _process(delta: float) -> void:
 	else:
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)	
 	#print(str(ray_cast_3d.get_collider()) + " | " + str(ray_cast_3d.get_collision_point()))
-	printt(str(ray_cast_3d.get_collider()), str(ray_cast_3d.get_collision_point()))
+	#printt(str(ray_cast_3d.get_collider()), str(ray_cast_3d.get_collision_point()))
 	
 	
