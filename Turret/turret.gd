@@ -1,6 +1,9 @@
 extends Node3D
 
 @export var projectile: PackedScene
+
+var enemy_path: Path3D
+
 @onready var turret_head: MeshInstance3D = $TurretBase/TurretTop/TurretHead
 
 

@@ -128,6 +128,7 @@ curve = SubResource("Curve3D_g5081")
 
 [node name="Base" parent="." instance=ExtResource("3_mdvbu")]
 
-[node name="TurretManager" type="Node3D" parent="."]
+[node name="TurretManager" type="Node3D" parent="." node_paths=PackedStringArray("enemy_path")]
 script = ExtResource("5_hmyp3")
 turret = ExtResource("6_c16c0")
+enemy_path = NodePath("../Path3D")
