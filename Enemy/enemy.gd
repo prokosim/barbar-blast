@@ -14,6 +14,7 @@ var current_health: int:
 		current_health = health_in
 		if current_health <1:
 			bank.gold += bounty
+			
 			blood_particles.emitting = true
 			death_timer.start()
 			#queue_free()
@@ -42,7 +43,8 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func enemy_death_animation() -> void:
-	queue_free()
-
+	death_timer.start()
+	blood_particles.emitting = true
+	
 func _on_death_timer_timeout() -> void:
 	queue_free()
