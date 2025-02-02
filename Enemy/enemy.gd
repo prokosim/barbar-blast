@@ -19,6 +19,8 @@ var current_health: int:
 @onready var base = get_tree().get_first_node_in_group("base")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var bank = get_tree().get_first_node_in_group("bank")
+@onready var label_3d: Label3D = $Label3D
+
 
 func _ready() -> void:
 	current_health = max_health 
@@ -26,6 +28,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	progress += delta * speed
+	
+	label_3d.text = str(current_health)
 	
 	if progress_ratio == 1:
 		base.take_damage()
