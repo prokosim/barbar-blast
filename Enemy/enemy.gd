@@ -14,12 +14,15 @@ var current_health: int:
 		current_health = health_in
 		if current_health <1:
 			bank.gold += bounty
+			blood_particles.emitting = true
 			queue_free()
 
 @onready var base = get_tree().get_first_node_in_group("base")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var bank = get_tree().get_first_node_in_group("bank")
 @onready var label_3d: Label3D = $Label3D
+@onready var blood_particles: GPUParticles3D = $BloodParticles
+
 
 
 func _ready() -> void:

@@ -61,13 +61,16 @@ clearcoat_enabled = true
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1dn8v"]
 emission_shape = 1
 emission_sphere_radius = 0.3
+spread = 180.0
+initial_velocity_min = 0.5
+initial_velocity_max = 0.7
 collision_mode = 1
 collision_friction = 0.0
 collision_bounce = 0.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_be8dx"]
-radius = 0.05
-height = 0.1
+radius = 0.1
+height = 0.2
 
 [node name="Enemy" type="PathFollow3D"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
@@ -101,14 +104,14 @@ billboard = 1
 text = "current health"
 font_size = 64
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="BloodParticles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.26354, 0)
 material_override = SubResource("StandardMaterial3D_xjnck")
 emitting = false
 amount = 128
-lifetime = 3.0
+lifetime = 2.0
 one_shot = true
-explosiveness = 1.0
+explosiveness = 0.43
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_1dn8v")
 draw_pass_1 = SubResource("SphereMesh_be8dx")
