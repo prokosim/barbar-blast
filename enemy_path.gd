@@ -6,6 +6,9 @@ extends Path3D
 
 @onready var timer: Timer = $Timer
 
+func _ready() -> void:
+	victory_layer.visible = false
+
 func spawn_enemy() -> void:
 	var new_enemy = enemy_scene.instantiate()
 	new_enemy.max_health = difficulty_manager.get_enemy_health()
@@ -26,4 +29,4 @@ func enemy_defeated() -> void:
 			if child is PathFollow3D:
 				return
 		print("You've won!")
-		victory_layer.visible = true
+		victory_layer.victory()
