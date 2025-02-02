@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bqejqx341mb81"]
+[gd_scene load_steps=16 format=3 uid="uid://bqejqx341mb81"]
 
 [ext_resource type="MeshLibrary" uid="uid://dbjwldtpy58x2" path="res://MeshLibraries/SpaceLibrary.tres" id="1_6b4en"]
 [ext_resource type="PackedScene" uid="uid://dsbqslcmpmbci" path="res://RayPickerCamera/ray_picker_camera.tscn" id="1_upweb"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://turret_manager.gd" id="5_hmyp3"]
 [ext_resource type="PackedScene" uid="uid://dnqm078csxa2b" path="res://Turret/turret.tscn" id="6_c16c0"]
 [ext_resource type="Script" path="res://bank.gd" id="8_q4cic"]
+[ext_resource type="PackedScene" uid="uid://x12n03p4htm0" path="res://DifficultyManager/difficulty_manager.tscn" id="9_xtthw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dtswi"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -63,10 +64,11 @@ data = {
 "cells": PackedInt32Array(65535, 65534, 0, 65535, 2, 0, 65531, 65535, 0, 4, 65535, 0, 65531, 65534, 0, 65531, 0, 0, 65531, 1, 0, 65531, 2, 0, 65532, 65534, 0, 65533, 65534, 0, 65533, 2, 0, 65534, 65534, 0, 65534, 2, 0, 0, 65534, 0, 0, 2, 0, 1, 65534, 0, 1, 2, 0, 2, 65534, 0, 2, 2, 0, 3, 65534, 0, 3, 2, 0, 4, 65534, 0, 4, 0, 0, 4, 2, 0, 65533, 0, 0, 65533, 1, 0, 65535, 65535, 0, 65535, 0, 0, 1, 1, 0, 1, 0, 0, 3, 65535, 0, 3, 0, 0)
 }
 
-[node name="EnemyPath" type="Path3D" parent="."]
+[node name="EnemyPath" type="Path3D" parent="." node_paths=PackedStringArray("difficulty_manager")]
 curve = SubResource("Curve3D_g5081")
 script = ExtResource("3_wx1k5")
 enemy_scene = ExtResource("2_eij3g")
+difficulty_manager = NodePath("../DifficultyManager")
 
 [node name="Road" type="CSGPolygon3D" parent="EnemyPath"]
 polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
@@ -116,6 +118,7 @@ visible = false
 curve = SubResource("Curve3D_g5081")
 
 [node name="Base" parent="." instance=ExtResource("3_mdvbu")]
+max_health = 50
 
 [node name="TurretManager" type="Node3D" parent="." node_paths=PackedStringArray("enemy_path")]
 script = ExtResource("5_hmyp3")
@@ -142,4 +145,7 @@ size_flags_vertical = 8
 text = "placeholder text"
 label_settings = SubResource("LabelSettings_4wp6c")
 
+[node name="DifficultyManager" parent="." instance=ExtResource("9_xtthw")]
+
 [connection signal="timeout" from="EnemyPath/Timer" to="EnemyPath" method="spawn_enemy"]
+[connection signal="stop_spawning_enemies" from="DifficultyManager" to="EnemyPath" method="_on_difficulty_manager_stop_spawning_enemies"]

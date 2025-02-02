@@ -28,6 +28,8 @@ func _process(delta: float) -> void:
 						var tile_position = gridMap.map_to_local(cell)
 						turret_manager.build_turret(tile_position)
 						bank.gold -= turret_cost
+		else:
+			Input.set_default_cursor_shape(Input.CURSOR_ARROW)	
 	else:
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)	
 	#print(str(ray_cast_3d.get_collider()) + " | " + str(ray_cast_3d.get_collision_point()))
