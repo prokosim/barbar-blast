@@ -15,13 +15,15 @@ var current_health: int:
 		if current_health <1:
 			bank.gold += bounty
 			blood_particles.emitting = true
-			queue_free()
+			death_timer.start()
+			#queue_free()
 
 @onready var base = get_tree().get_first_node_in_group("base")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var bank = get_tree().get_first_node_in_group("bank")
 @onready var label_3d: Label3D = $Label3D
 @onready var blood_particles: GPUParticles3D = $BloodParticles
+@onready var death_timer: Timer = $DeathTimer
 
 
 
@@ -38,3 +40,9 @@ func _process(delta: float) -> void:
 		base.take_damage()
 		set_process(false)
 		queue_free()
+
+func enemy_death_animation() -> void:
+	queue_free()
+
+func _on_death_timer_timeout() -> void:
+	queue_free()

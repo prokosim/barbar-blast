@@ -62,8 +62,11 @@ clearcoat_enabled = true
 emission_shape = 1
 emission_sphere_radius = 0.3
 spread = 180.0
+flatness = 0.095
 initial_velocity_min = 0.5
 initial_velocity_max = 0.7
+radial_accel_min = -29.16
+radial_accel_max = 56.67
 collision_mode = 1
 collision_friction = 0.0
 collision_bounce = 0.0
@@ -102,7 +105,7 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.24767, 0)
 billboard = 1
 text = "current health"
-font_size = 64
+font_size = 128
 
 [node name="BloodParticles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.26354, 0)
@@ -111,7 +114,14 @@ emitting = false
 amount = 128
 lifetime = 2.0
 one_shot = true
-explosiveness = 0.43
+preprocess = 0.1
+explosiveness = 0.77
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_1dn8v")
 draw_pass_1 = SubResource("SphereMesh_be8dx")
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
