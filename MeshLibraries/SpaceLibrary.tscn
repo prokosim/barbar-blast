@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhdkbgwbegx7s"]
+[gd_scene load_steps=9 format=3 uid="uid://bhdkbgwbegx7s"]
+
+[ext_resource type="PackedScene" uid="uid://dvkwr2ki4qqli" path="res://Assets/Tree.glb" id="1_lhmq8"]
+[ext_resource type="PackedScene" uid="uid://b8ovkg0vtpbmb" path="res://Assets/Rocks.glb" id="2_17uub"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efwwy"]
-albedo_color = Color(0.691357, 0.691357, 0.691357, 1)
+blend_mode = 1
+albedo_color = Color(0.28485, 0.28485, 0.28485, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_auvqd"]
 material = SubResource("StandardMaterial3D_efwwy")
@@ -11,7 +15,8 @@ size = Vector3(4, 0.1, 4)
 data = PackedVector3Array(-2, 0.05, 2, 2, 0.05, 2, -2, -0.05, 2, 2, 0.05, 2, 2, -0.05, 2, -2, -0.05, 2, 2, 0.05, -2, -2, 0.05, -2, 2, -0.05, -2, -2, 0.05, -2, -2, -0.05, -2, 2, -0.05, -2, 2, 0.05, 2, 2, 0.05, -2, 2, -0.05, 2, 2, 0.05, -2, 2, -0.05, -2, 2, -0.05, 2, -2, 0.05, -2, -2, 0.05, 2, -2, -0.05, -2, -2, 0.05, 2, -2, -0.05, 2, -2, -0.05, -2, 2, 0.05, 2, -2, 0.05, 2, 2, 0.05, -2, -2, 0.05, 2, -2, 0.05, -2, 2, 0.05, -2, -2, -0.05, 2, 2, -0.05, 2, -2, -0.05, -2, 2, -0.05, 2, 2, -0.05, -2, -2, -0.05, -2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2jcow"]
-albedo_color = Color(0.894605, 0.327911, 0.292448, 1)
+transparency = 1
+albedo_color = Color(0.89, 0.333453, 0.2937, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fc7sc"]
 material = SubResource("StandardMaterial3D_2jcow")
@@ -23,7 +28,6 @@ data = PackedVector3Array(-2, 0.05, 2, 2, 0.05, 2, -2, -0.05, 2, 2, 0.05, 2, 2, 
 [node name="SpaceLibrary" type="Node3D"]
 
 [node name="FreeSpace" type="MeshInstance3D" parent="."]
-visible = false
 mesh = SubResource("BoxMesh_auvqd")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="FreeSpace"]
@@ -38,3 +42,7 @@ mesh = SubResource("BoxMesh_fc7sc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TurretBase/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_7qu0g")
+
+[node name="Tree" parent="." instance=ExtResource("1_lhmq8")]
+
+[node name="Rocks" parent="." instance=ExtResource("2_17uub")]

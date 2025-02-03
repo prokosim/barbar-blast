@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dnqm078csxa2b"]
+[gd_scene load_steps=13 format=3 uid="uid://dnqm078csxa2b"]
 
 [ext_resource type="Script" path="res://Turret/turret.gd" id="1_5jorw"]
 [ext_resource type="PackedScene" uid="uid://barktk7dao66h" path="res://Turret/projectile.tscn" id="2_2r7g7"]
+[ext_resource type="PackedScene" uid="uid://bdd1ncngu1rms" path="res://Assets/Cannon.glb" id="3_cg2ie"]
+[ext_resource type="PackedScene" uid="uid://deoryl5l3kax3" path="res://Assets/TurretBase.glb" id="4_htvd2"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_5xtld"]
 height = 1.0
@@ -119,15 +121,21 @@ mesh = SubResource("CylinderMesh_t7wxi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("CylinderMesh_bu5ad")
 
+[node name="CannonGLB" parent="TurretBase/TurretTop/TurretHead" instance=ExtResource("3_cg2ie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
 [node name="TurretCap" type="MeshInstance3D" parent="TurretBase/TurretTop/TurretHead"]
+visible = false
 mesh = SubResource("SphereMesh_lsqme")
 
 [node name="Cannon" type="MeshInstance3D" parent="TurretBase/TurretTop/TurretHead"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.15, 0, 0.5)
+visible = false
 mesh = SubResource("CylinderMesh_xfoui")
 
 [node name="Cannon2" type="MeshInstance3D" parent="TurretBase/TurretTop/TurretHead"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.15, 0, 0.5)
+visible = false
 mesh = SubResource("CylinderMesh_xfoui")
 
 [node name="Timer" type="Timer" parent="."]
@@ -137,5 +145,7 @@ autostart = true
 libraries = {
 "": SubResource("AnimationLibrary_m8rcm")
 }
+
+[node name="TurretBase2" parent="." instance=ExtResource("4_htvd2")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
