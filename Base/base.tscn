@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhcbjh57hmtry"]
+[gd_scene load_steps=5 format=3 uid="uid://bhcbjh57hmtry"]
 
 [ext_resource type="Script" path="res://Base/base.gd" id="1_cehfa"]
 [ext_resource type="PackedScene" uid="uid://lo5m7o54pbtx" path="res://Assets/Base.glb" id="2_nc8kx"]
+[ext_resource type="FontFile" uid="uid://bgadhgfi08g4m" path="res://Assets/TurretRoad/TurretRoad-Bold.ttf" id="2_u75an"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycltb"]
 albedo_color = Color(0.72191, 0.219617, 0.242184, 1)
@@ -22,6 +23,7 @@ material = SubResource("StandardMaterial3D_ycltb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
 billboard = 1
 text = "Health"
+font = ExtResource("2_u75an")
 font_size = 300
 outline_size = 100
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bqejqx341mb81"]
+[gd_scene load_steps=18 format=3 uid="uid://bqejqx341mb81"]
 
 [ext_resource type="MeshLibrary" uid="uid://dbjwldtpy58x2" path="res://MeshLibraries/SpaceLibrary.tres" id="1_6b4en"]
 [ext_resource type="PackedScene" uid="uid://dsbqslcmpmbci" path="res://RayPickerCamera/ray_picker_camera.tscn" id="1_upweb"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dnqm078csxa2b" path="res://Turret/turret.tscn" id="6_c16c0"]
 [ext_resource type="Script" path="res://bank.gd" id="8_q4cic"]
 [ext_resource type="PackedScene" uid="uid://x12n03p4htm0" path="res://DifficultyManager/difficulty_manager.tscn" id="9_xtthw"]
+[ext_resource type="FontFile" uid="uid://bgadhgfi08g4m" path="res://Assets/TurretRoad/TurretRoad-Bold.ttf" id="9_y204t"]
 [ext_resource type="PackedScene" uid="uid://dbwmkc800fde5" path="res://ui/victory_layer.tscn" id="10_g3jr5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dtswi"]
@@ -35,6 +36,7 @@ _data = {
 point_count = 23
 
 [sub_resource type="LabelSettings" id="LabelSettings_4wp6c"]
+font = ExtResource("9_y204t")
 font_size = 48
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
@@ -142,7 +144,7 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 script = ExtResource("8_q4cic")
-starting_gold = 15000
+starting_gold = 100
 
 [node name="Label" type="Label" parent="Bank"]
 layout_mode = 2

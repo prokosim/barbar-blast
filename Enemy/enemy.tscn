@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=4 uid="uid://cwb5tvyhhlosf"]
+[gd_scene load_steps=15 format=4 uid="uid://cwb5tvyhhlosf"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_2vkdj"]
 [ext_resource type="PackedScene" uid="uid://ckdbd0t2arg5b" path="res://Assets/Barbarian.glb" id="2_3najk"]
+[ext_resource type="FontFile" uid="uid://bgadhgfi08g4m" path="res://Assets/TurretRoad/TurretRoad-Bold.ttf" id="2_40gax"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hlgin"]
 radius = 1.0
@@ -175,6 +176,7 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.24767, 0)
 billboard = 1
 text = "current health"
+font = ExtResource("2_40gax")
 font_size = 128
 
 [node name="BloodParticles" type="GPUParticles3D" parent="."]
